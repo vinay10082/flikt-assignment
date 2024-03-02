@@ -2,7 +2,8 @@ import express from 'express'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import userRoutes from './routes/auth.js'
+
+import routes from './routes/index.js'
 
 const app = express();
 dotenv.config();
@@ -14,7 +15,7 @@ app.get('/',(req, res) => {
     res.send("This is a flikt technology web solution assignment")
 })
 
-app.use('/user', userRoutes)
+app.use('/api', routes)
 
 const PORT = process.env.PORT || 5000
 

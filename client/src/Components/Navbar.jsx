@@ -31,10 +31,10 @@ useEffect(() => {
   return (
     <div>Navbar
       { User === null ? 
-                    <Link to='/Auth'>Log in</Link> : 
-                    <>
-                    <button onClick={handleLogout}>Log out</button>
-                    </>
+        <Link to='/Auth'>Log in</Link> : 
+        <>
+        <button onClick={handleLogout}>Log out</button>
+        </>
       }
     </div>
   )
