@@ -1,37 +1,40 @@
-import React, {useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import './Pages.css'
 
 export const AddData = () => {
 
   const datas = {
-    fname:"",
-    lname:"",
-    dob:"",
-    email:"",
-    phone:""
+    fname: "",
+    lname: "",
+    dob: "",
+    email: "",
+    phone: ""
   }
 
   const [data, setData] = useState(datas)
+  const navigate = useNavigate();
 
   const inputHandler = (e) => {
-    const {name, value} = e.target;
-    setData({...data, [name]:value});
+    const { name, value } = e.target;
+    setData({ ...data, [name]: value });
     // console.log(dat);
   }
 
-  const submitForm = async(e) => {
+  const submitForm = async (e) => {
     e.preventDefault();
 
     await axios.post('http://localhost:5000/api/create', data)
-    .then((response)=>{
-      console.log(response)
-    }).catch(error => console.log(error))
+      .then((response) => {
+        console.log(response)
+        navigate('/')
+      }).catch(error => console.log(error))
   }
 
   return (
     <div className="addData">
-      <Link to={'/'}>Back</Link>
+      <Link className='handle-switch-btn' to={'/'}>Back</Link>
       <h3>Add new Data</h3>
       <form onSubmit={submitForm}>
         <div className="inputGroup">
@@ -55,7 +58,7 @@ export const AddData = () => {
           <input type="text" id='phone' name='phone' placeholder='+91-xxxxxxxxxx' onChange={inputHandler} />
         </div>
         <div className="inputGroup">
-          <button type="submit">Add Data</button>
+          <button className="auth-btn" type="submit">Add Data</button>
         </div>
       </form>
     </div>

@@ -1,0 +1,134 @@
+h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-container-2 {
+  margin: 100px auto;
+  width: 500px;
+  height: 700px;
+  padding: auto;
+}
+
+.home-data-table {
+  margin: 50px 200px;
+  padding: auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid rgb(0, 41, 176);
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.addData {
+  margin: 100px auto;
+  width: 500px;
+  height: 700px;
+  padding: auto;
+}
+
+.updateData {
+  margin: 100px auto;
+  width: 500px;
+  height: 700px;
+  padding: auto;
+}
+
+input {
+  width: 100%;
+  height: 40px;
+  padding-left: 20px;
+  border: 2px solid #4c66ea;
+  border-radius: 4px;
+}
+
+.auth-btn {
+  background-color: #4c66ea;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 20px 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.auth-btn:hover,
+.auth-btn:focus {
+  background-color: #aad7f0;
+  color: #4c66ea;
+}
+
+.delete-btn {
+  background-color: #f12929;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 20px 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+  background-color: #f0aaaa;
+  color: #f12929;
+}
+
+.handle-switch-btn {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0 12px;
+  line-height: 20px;
+  height: 30px;
+  max-height: 30px;
+  background: none;
+  font-weight: 700;
+  border: 0;
+  border-radius: 0;
+  color: #272dd9;
+  transition-timing-function: ease-in-out;
+  transition-property: background;
+  transition-duration: 150ms;
+  box-shadow: none;
+}
+
+handle-switch-btn:hover {
+  background: #F7F9FD;
+}

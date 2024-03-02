@@ -1,34 +1,34 @@
 import axios from 'axios'
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import './Pages.css'
 
 export const Home = () => {
 
     const [datas, setDatas] = useState([]);
 
-    useEffect(() =>{
-        const fetchData = async()=>{
+    useEffect(() => {
+        const fetchData = async () => {
             const response = await axios.get('http://localhost:5000/api/getall')
             setDatas(response.data);
         }
         fetchData();
-    },[])
+    }, [])
 
-    const deleteData = async(dataId) => {
+    const deleteData = async (dataId) => {
         await axios.delete(`http://localhost:5000/api/delete/${dataId}`)
-        .then((response) =>{
-            setDatas((prevUser) => prevUser.filter((data) => data._id !== dataId))
-        })
-        .catch((error) => {
-            console.log(error)
-        })
+            .then((response) => {
+                setDatas((prevUser) => prevUser.filter((data) => data._id !== dataId))
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
-    
+
     return (
-    <div className="home-data-table">
-        <Link to={'/add'}>Add Data</Link>
-        <table border={1} cellPadding={10} cellSpacing={0}>
-            <thread>
+        <div className="home-data-table">
+            <h3>CRUD Table</h3>
+            <table>
                 <tr>
                     <th>S.no.</th>
                     <th>Full Name</th>
@@ -37,27 +37,25 @@ export const Home = () => {
                     <th>Phone Number</th>
                     <th>Actions</th>
                 </tr>
-            </thread>
-            <tbody>
                 {
-                    datas.map((data, index) =>{
-                        return(
+                    datas.map((data, index) => {
+                        return (
                             <tr key={data._id}>
-                                <td>{index+1}.</td>
+                                <td>{index + 1}.</td>
                                 <td>{data.fname} {data.lname}</td>
                                 <td>{data.dob}</td>
                                 <td>{data.email}</td>
                                 <td>{data.phone}</td>
                                 <td>
-                                    <button onClick={()=>deleteData(data._id)}>Delete</button>
-                                    <Link to={`/edit/`+data._id}>Edit</Link>
+                                    <button className='delete-btn' onClick={() => deleteData(data._id)}>Delete</button>
+                                    <Link className='handle-switch-btn' to={`/edit/` + data._id}>Edit</Link>
                                 </td>
                             </tr>
                         )
                     })
                 }
-            </tbody>
-        </table>
-    </div>
-  )
+            </table>
+            <Link className='auth-btn ' to={'/add'}>Add Data</Link>
+        </div>
+    )
 }
